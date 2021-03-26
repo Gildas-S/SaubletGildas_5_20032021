@@ -37,7 +37,7 @@ const getClassToToggle = (target) => {
 const addTagParamToURL = (tagToAdd) => {
     if (tagToAdd == "") return;
   
-    let url = "https://saubletg.gitlab.io/saubletgildas_5_21012020/";
+    let url = "https://saubletg.gitlab.io/saubletgildas_5_20032021/";
     let tagParams = getParamsFromURL("tag");
   
     if (tagParams.includes(tagToAdd))
