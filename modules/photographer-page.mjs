@@ -56,7 +56,7 @@ const fillPhotographerHeader = () => {
 
   const tagsElt = document.getElementById("ph-tags");
   photographerData.tags.forEach((tag) =>
-    createInteractiveListElt(tagsElt, tag, `index.html?tag=${tag}`)
+    createInteractiveListElt(tagsElt, tag, `photographer.html?id=${photographerData.id}`)
   );
 
   const portraitElt = document.getElementById("ph-portrait");
@@ -73,7 +73,9 @@ const fillPhotographerHeader = () => {
 const createPhotographerWorksSection = (filterTag) => {
   const worksElts = document.getElementById("works-elts");
   worksElts.innerHTML = "";
-  const sortedWorks = sortPhotographers(photographerWorks, filterTag);
+  console.log(photographerWorks)
+  console.log(filterTag)
+  const sortedWorks = sortPhotographers(photographerWorks, filterTag.trim());
   sortedWorks.forEach((work) => worksElts.appendChild(createWorkElt(work)));
 };
 

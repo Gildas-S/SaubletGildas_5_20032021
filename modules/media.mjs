@@ -3,7 +3,6 @@ import { createImgElt, createTextualElt } from "/modules/utils.mjs";
 // Create the image factory
 class Photo {
   constructor(props) {
-    this.photographerName = props.photographerName;
     this.src = props.image;
     this.alt = props.alt;
     this.id = props.id;

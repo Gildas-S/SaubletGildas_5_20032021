@@ -4,9 +4,20 @@ import {
   toggleFilter,
   checkFilterOnPageCreation,
 } from "/modules/filter-tags.mjs";
+import data from "/modules/data.mjs";
 
-// Select document elements
+// Select document element
 const photographersElt = document.getElementById("photographers");
+
+// Build Homepage
+const createHomepage = () => {
+  let photographers = data.photographers;
+  photographers.forEach((photographer) => 
+  photographersElt.appendChild(createPhotographerElt(photographer)))
+};
+
+
+/*const photographersElt = document.getElementById("photographers");
 const tagsElt = document.getElementById("tags");
 
 // Build Homepage
@@ -22,6 +33,6 @@ const createHomepage = () => {
     tagsListElts.forEach((elt) => elt.addEventListener("click", toggleFilter));
   
     checkFilterOnPageCreation();
-  };
+  };*/
   
   export { createHomepage };
