@@ -56,7 +56,7 @@ const fillEltWithText = (elt, text) => {
 // Create a list of interactive html tag elements
 const createInteractiveListElt = (parentElt, eltText, hrefURL) => {
     const liElt = document.createElement("li");
-    const aElt = createEltWithClassName("a", "filter-tag");
+    const aElt = createEltWithClassName("a", "tags");
     aElt.setAttribute("href", hrefURL);
     aElt.setAttribute("title", eltText);
     aElt.textContent = eltText;

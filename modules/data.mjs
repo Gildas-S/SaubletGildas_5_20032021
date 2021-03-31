@@ -49,7 +49,7 @@ export default {
       id: 925,
       city: "Barcelona",
       country: "Spain",
-      tags: ["sport", "fashion", "events", "animals"],
+      tags: ["sports", "fashion", "events", "animals"],
       tagline: "Je crée des souvenirs",
       price: 275,
       portrait: "RhodeDubois.jpg",
