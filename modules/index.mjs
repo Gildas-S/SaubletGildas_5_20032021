@@ -1,27 +1,38 @@
-import { createHomepage } from "/modules/homepage.mjs";
-import { createPhotographerPage } from "/modules/photographer-page.mjs";
+import { createPhotographerElt } from "/modules/photographer-elt.mjs";
+import {
+  getFilteredPhotographers,
+  toggleFilter,
+  checkFilterOnPageCreation,
+} from "/modules/filter-tags.mjs";
+import data from "/modules/data.mjs";
 
-const path = window.location.pathname;
+// Select document element
+const photographersElt = document.getElementById("photographers");
 
-// Create page based on the pathname
-if (path.includes("photographer.html")) createPhotographerPage();
-else {
-  //const linkElt = document.getElementById("link-content");
-  createHomepage();
-  /*document.addEventListener("scroll", manageContentNav);
-  linkElt.addEventListener("focus", () => (linkElt.style.top = "6px"));
-  linkElt.addEventListener("blur", () => (linkElt.style.top = "-100px"));*/
-}
+// Build Homepage
+const createHomepage = () => {
+  let photographers = data.photographers;
+  photographers.forEach((photographer) => 
+  photographersElt.appendChild(createPhotographerElt(photographer)))
+};
 
-// Display or hide link (scroll event)
-/*function manageContentNav() {
-    const linkElt = document.getElementById("link-content");
-    const bannerElt = document.getElementById("header-banner");
+
+/*const photographersElt = document.getElementById("photographers");
+const tagsElt = document.getElementById("tags");
+
+// Build Homepage
+const createHomepage = () => {
+    tagsElt.addEventListener("click", toggleFilter);
   
-    if (window.scrollY >= bannerElt.offsetHeight - 20) {
-      linkElt.style.top = "6px";
-    }
-    if (window.scrollY < bannerElt.offsetHeight - 20) {
-      linkElt.style.top = "-100px";
-    }
-  }*/
+    let photographersToDisplay = getFilteredPhotographers([]);
+    photographersToDisplay.forEach((photographer) =>
+      photographersElt.appendChild(createPhotographerElt(photographer))
+    );
+  
+    const tagsListElts = document.querySelectorAll(".ph-elt-tags");
+    tagsListElts.forEach((elt) => elt.addEventListener("click", toggleFilter));
+  
+    checkFilterOnPageCreation();
+  };*/
+  
+  export { createHomepage };
