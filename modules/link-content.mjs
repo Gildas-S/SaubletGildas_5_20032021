@@ -1,4 +1,9 @@
-//Add index event
+//Add index event to Index
+const linkContent = () => {
+    createLinkContent();
+    manageContentNav();
+}
+
 //Create link-content
 const createLinkContent = () => {
     const linkElt = document.getElementById("link-content");
@@ -21,6 +26,5 @@ const manageContentNav = () => {
   }
 
   export {
-    createLinkContent, 
-    manageContentNav 
+    linkContent
     };

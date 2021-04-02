@@ -1,27 +1,21 @@
 import { createHomepage } from "/modules/index.mjs";
 import { createPhotographerPage } from "/modules/photographer-page.mjs";
-import {
-  createLinkContent,
-  manageContentNav
-} from "/modules/link-content.mjs"
-import {
-  selectTags
-} from "/modules/filter.mjs"
+import { linkContent } from "/modules/link-content.mjs"
+import { selectTags } from "/modules/filter.mjs"
 
+// Create page based on the pathname
 // Select the path element
 const path = window.location.pathname;
 
-// Create page based on the pathname
 // Create the photographer page
-if (path.includes("photographer.html")) createPhotographerPage();
+if (path.includes("photographer.html"))
+createPhotographerPage();
+
 //Create the index Homepage
 else {
   createHomepage();
-  createLinkContent();
-  manageContentNav();
+  linkContent();
   selectTags();
-
-
 }
 
 
