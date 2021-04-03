@@ -5,21 +5,25 @@ import data from "/modules/data.mjs";
 
 // Build Homepage
 const createHomepage = () => {
-  displayPhotographers()
-  displayTagsList()
+  displayPhotographers();
+  displayTagsList();
+  filterTags();
 };
 
 //Select document elements
-const tagsElt = document.getElementById("tags");
-const photographersElt = document.getElementById("photographers");
-const photographers = data.photographers;
+let tagsElt = document.getElementById("tags");
+let photographersElt = document.getElementById("photographers");
+let photographers = data.photographers;
 
 
 // Display photographers
 const displayPhotographers = () => {
+  console.log(photographersElt);
+  removeAllChildNodes(photographersElt)
   photographers.forEach((photographer) => {
   photographersElt.appendChild(createPhotographerElt(photographer))
   })
+  console.log(photographersElt);
 }
 
 // Display tags list
@@ -34,4 +38,19 @@ const displayTagsList = () => {
   })
 };
 
-export { createHomepage };
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+  }
+}
+//Filter index tags list 
+const filterTags = () => {
+  const tagsElt = document.getElementById("tags");
+  tagsElt.addEventListener("click", (e) => {
+  e.preventDefault();
+  photographers = photographers.filter(photographer => photographer.tags.includes(e.target.outerText.trim()))
+  displayPhotographers();
+  })
+}
+
+export { createHomepage, displayPhotographers };

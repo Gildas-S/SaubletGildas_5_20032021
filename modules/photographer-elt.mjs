@@ -14,7 +14,6 @@ const createPhotographerElt = (data) => {
     const aElt = createLinkElt(`photographer.html?id=${data.id}`, data.name);
     const pElt = createEltWithClassName("p", "infos");
     const ulElt = createEltWithClassName("ul", "tags");
-    ulElt.classList.add("ph-elt-tags");
     articleElt.appendChild(aElt);
     articleElt.appendChild(pElt);
     articleElt.appendChild(ulElt);
